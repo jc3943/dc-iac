@@ -25,6 +25,7 @@ RUN ansible-galaxy collection install cisco.aci
 RUN ansible-galaxy collection install community.vmware
 RUN ansible-galaxy collection install cisco.nae
 RUN ansible-galaxy collection install wti.remote
+RUN ansible-galaxy collection install cisco.nxos
 RUN pip3 install pyopenssl
 RUN pip3 install requests
 RUN pip3 install xlrd
