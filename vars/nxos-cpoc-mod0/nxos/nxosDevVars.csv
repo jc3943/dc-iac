@@ -1,4 +1,4 @@
-feature,hostbname,mgmtIP
+feature,hostname,mgmtIP
 privilege,cs05,9.1.18.24
 scp-server,cs06,9.1.18.25
 ospf,es01,9.1.18.20
