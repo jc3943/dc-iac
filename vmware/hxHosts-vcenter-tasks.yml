@@ -72,7 +72,7 @@
         password: "{{ vcsa_pwd }}"
         validate_certs: no
         esxi_hostname: '{{ hosts.host }}'
-        switch_name: HX-VMM
+        switch_name: CL-VMM
         vmnics:
             - vmnic10
             - vmnic11
@@ -90,9 +90,9 @@
         password: "{{ vcsa_pwd }}"
         validate_certs: no
         esxi_hostname: '{{ hosts.host }}'
-        switch_name: HX-VMM
+        switch_name: CL-VMM
         lag_uplinks:
-            - lag: HX-VMM-lacp
+            - lag: CL-VMM-lacp
               vmnics:
                   - vmnic10
                   - vmnic11
