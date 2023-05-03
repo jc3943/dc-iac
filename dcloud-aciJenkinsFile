@@ -98,7 +98,6 @@ pipeline {
           ansiblePlaybook(
               playbook: './aci/aep-epg-bm.yml',
               inventory: '$apicInventoryx509',
-              extras: '--extra-vars="@$varPath/aci/bare-metal-aep.yaml"',
               colorized: true
           )
           ansiblePlaybook(
