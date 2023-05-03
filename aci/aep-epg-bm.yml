@@ -8,7 +8,7 @@
 
   tasks:
     - read_csv:
-        path: $varPath/aci/tenant.csv
+        path: ../$varPath/aci/tenant.csv
       register: tenantList
 
     - name: TASK - Map EPG to AEP
