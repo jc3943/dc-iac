@@ -20,7 +20,7 @@
         validate_certs: False
         tenant: "{{ aep.tenant }}"
         aep: "{{ aep.aep }}"
-        ap: "{{ aep.ap }}"
+        ap: "{{ aep.appProfile }}"
         epg: "{{ aep.epg }}"
         encap_id: "{{ aep.vlanEncaps }}"
         interface_mode: "{{ aep.mode }}"
