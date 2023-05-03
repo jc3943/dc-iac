@@ -6,7 +6,7 @@
         "attributes": {
           "annotation": "",
           "descr": "",
-          "dn": "uni/tn-SERVICES/out-out-L3Out_ltrato-2002",
+          "dn": "uni/tn-ltrato-2002/out-out-L3Out_ltrato-2002",
           "enforceRtctrl": "export",
           "mplsEnabled": "no",
           "name": "out-L3Out_ltrato-2002",
@@ -30,7 +30,7 @@
             "l3extRsEctx": {
               "attributes": {
                 "annotation": "",
-                "tnFvCtxName": "services-vrf",
+                "tnFvCtxName": "ltrato-2002-vrf",
                 "userdom": "all"
               }
             }
@@ -41,7 +41,7 @@
                 "annotation": "",
                 "configIssues": "",
                 "descr": "",
-                "name": "SBOX-Leaf-202",
+                "name": "Leaf-102",
                 "nameAlias": "",
                 "ownerKey": "",
                 "ownerTag": "",
@@ -57,7 +57,7 @@
                       "configIssues": "",
                       "rtrId": "172.20.255.121",
                       "rtrIdLoopBack": "yes",
-                      "tDn": "topology/pod-1/node-202",
+                      "tDn": "topology/pod-1/node-102",
                       "userdom": ":all:"
                     }
                   }
@@ -67,7 +67,7 @@
                     "attributes": {
                       "annotation": "",
                       "descr": "",
-                      "name": "SBOX-Leaf-202",
+                      "name": "Leaf-102",
                       "nameAlias": "",
                       "ownerKey": "",
                       "ownerTag": "",
@@ -92,7 +92,7 @@
                             "mac": "00:22:BD:F8:19:FF",
                             "mode": "regular",
                             "mtu": "inherit",
-                            "tDn": "topology/pod-1/paths-202/pathep-[eth1/48]",
+                            "tDn": "topology/pod-1/paths-102/pathep-[eth1/48]",
                             "targetDscp": "unspecified",
                             "userdom": ":all:"
                           }
@@ -177,7 +177,7 @@
                 "annotation": "",
                 "configIssues": "",
                 "descr": "",
-                "name": "SBOX-Leaf-201",
+                "name": "Leaf-101",
                 "nameAlias": "",
                 "ownerKey": "",
                 "ownerTag": "",
@@ -193,7 +193,7 @@
                       "configIssues": "",
                       "rtrId": "172.20.255.117",
                       "rtrIdLoopBack": "yes",
-                      "tDn": "topology/pod-1/node-201",
+                      "tDn": "topology/pod-1/node-101",
                       "userdom": ":all:common:"
                     }
                   }
@@ -203,7 +203,7 @@
                     "attributes": {
                       "annotation": "",
                       "descr": "",
-                      "name": "SBOX-Leaf-201",
+                      "name": "Leaf-101",
                       "nameAlias": "",
                       "ownerKey": "",
                       "ownerTag": "",
@@ -331,7 +331,7 @@
                       "intent": "install",
                       "matchT": "AtleastOne",
                       "prio": "unspecified",
-                      "tnVzBrCPName": "SERVICES-Contract",
+                      "tnVzBrCPName": "ltrato-2002-Contract",
                       "userdom": ":all:common:"
                     }
                   }
@@ -365,7 +365,7 @@
                       "annotation": "",
                       "intent": "install",
                       "prio": "unspecified",
-                      "tnVzBrCPName": "SERVICES-Contract",
+                      "tnVzBrCPName": "ltrato-2002-Contract",
                       "userdom": ":all:common:"
                     }
                   }
