@@ -355,6 +355,7 @@
         domain: "{{ item.domain }}"
         domain_type: "{{ item.domainType }}"
         vm_provider: "vmware"
+        deploy_immediacy: "immediate"
         resolution_immediacy: "pre-provision"
         encap_mode: "auto"
       when: (item.encaptype == "auto" and item.domainType == "vmm")
