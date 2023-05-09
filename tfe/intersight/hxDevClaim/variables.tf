@@ -22,3 +22,11 @@ variable "cimc_pw" {
     type = string
     description = "Password for CIMC login"
 }
+
+variable "varPath" {
+  type = string
+}
+
+variable "imcSeedFile" {
+  type = string
+}
