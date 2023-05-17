@@ -20,3 +20,14 @@ def nexDashGetToken(specDict):
 
     return token
 
+def nexDashAddSite(specDict, cookie):
+    with open(specDict['infile'], 'r') as csv_file:
+        csvread = csv.DictReader(csv_file)
+        csvDict = list(csvread)
+
+    urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
+    siteUrl = nexDashBaseUrl + "/nexus/api/sitemanagement/v4/sites"
+    sitePayload = {"spec":{"host":csvDict[0]['apicIp'],"latitude":"10","name":"dCloud","password":"C1sco12345","siteType":"ACI","userName":"admin"}}
+
+

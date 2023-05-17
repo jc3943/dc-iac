@@ -5,7 +5,7 @@
 import sys, getopt, csv
 import requests, json
 import urllib3
-from nexDashOps import nexDashGetToken
+from nexDashOps import nexDashGetToken, nexDashAddSite
 
 
 def main(argv):
@@ -44,3 +44,4 @@ def main(argv):
 if __name__ == '__main__':
     nexDashData = main(sys.argv[1:])
     newCookie = nexDashGetToken(nexDashData)
+    nexDashAddSiteResult = nexDashAddSite(nexDashData, newCookie)
