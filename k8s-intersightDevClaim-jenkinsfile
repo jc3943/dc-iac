@@ -5,6 +5,8 @@ pipeline {
   environment {
         BRANCH_NAME = "${GIT_BRANCH}"
         varPath = "vars/" + "${BRANCH_NAME}"
+        TF_VAR_varPath = "vars/" + "${BRANCH_NAME}"
+        TF_VAR_imcSeedFile=.."/../../vars/" + "${BRANCH_NAME}" + "/imc/hostIpAddrs.csv"
         APIC_CREDS = credentials('apic-creds')
         vcsaHostName = "vcsa-" + "${BRANCH_NAME}" + ".thor.iws.navy.mil"
   }
