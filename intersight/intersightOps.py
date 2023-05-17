@@ -10,8 +10,8 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # Create an AUTH object
 AUTH = IntersightAuth(
-    secret_key_filename='creds/qa-isight-SecretKey.txt',
-    api_key_id='6273ddc07564612d30091b97/6273e4cc7564612d300964b9/62f53d6e7564612d30253ff4'
+    secret_key_filename='creds/dev-isight-SecretKey.txt',
+    api_key_id='6457bfa47564612d300f0917/6457cbbd7564612d30cb32ab/64595f8c7564612d30cb47cc'
     )
 
 def getDevTargetStatus(specDict):
@@ -38,6 +38,7 @@ def getDevTargetStatus(specDict):
         claimList = []
         targetClaimStatus = requests.get(targetURL, verify=False, auth=AUTH)
         targetClaimStatusJson = targetClaimStatus.json()
+        #print(targetClaimStatusJson)
         #if ("IntersightAssist" not in targetClaimStatusJson["Results"][i]["TargetType"]):
         for j in range(len(targetClaimStatusJson["Results"])):
             if (targetClaimStatusJson["Results"][j]["IpAddress"] != []):
