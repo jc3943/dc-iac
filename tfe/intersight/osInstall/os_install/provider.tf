@@ -9,7 +9,7 @@ terraform {
 }
 
 provider "intersight" {
-  apikey    = "6273ddc07564612d30091b97/6273e4cc7564612d300964b9/62f53d6e7564612d30253ff4"
-  secretkey = "../../../../creds/qa-isight-SecretKey.txt"
-  endpoint  = "https://qa-intersight.thor.iws.navy.mil"
+  apikey    = "6457bfa47564612d300f0917/6457cbbd7564612d30cb32ab/64595f8c7564612d30cb47cc"
+  secretkey = "../../../creds/dev-isight-SecretKey.txt"
+  endpoint  = "https://dev-intersight.thor.iws.navy.mil"
 }
