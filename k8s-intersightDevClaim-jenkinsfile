@@ -37,7 +37,7 @@ pipeline {
           //kick off terraform imc device discover for ucs hosts
           dir('tfe/intersight/hxDevClaim') {
             sh 'terraform init'
-            sh 'terraform apply -auto-approve'
+            sh 'terraform apply -var-file=sandbox.tfvars -auto-approve'
           }
           //Need add status checking to python script for status to replace sleep
           sh 'python3 intersight/intersightDevClaimStatus.py -u https://qa-intersight.thor.iws.navy.mil -i $varPath/imc/hostIpAddrs.csv'
