@@ -17,10 +17,17 @@
            - address: "{{ item.apicAddress }}"
              description: CONFIGURED BY ANSIBLE!
              name: "{{ item.apicName }}"
-             authgroup: "DEV"
+             authgroup: "cl2022-apics"
              device-type:
                generic:
                  ned-id: "cisco-apicdc-gen-3.18"
+             ned-settings:
+               tailf-ned-cisco-apicdc-meta:cisco-apicdc:
+                 config-path: "/home/dcloud/aci"
+                 local-host: False
+                 host: "172.16.10.95"
+                 user-name: "ncs"
+                 user-password: "THORP@ssw0rd"
              port: "443"
              state:
                admin-state: "unlocked"
