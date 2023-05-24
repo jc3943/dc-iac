@@ -16,7 +16,7 @@
     ntp_servers: '198.18.133.1'
     domain: 'dcloud.cisco.com'
     searchpath: "dcloud.cisco.com"
-    datastore: 'hx-a-dc1'
+    datastore: 'hx-a-ds1'
     networks: 'VM Network'
     ubuntu_ova_name: jammy-server-cloudimg-amd64.ova
     #ubuntu_ova_url: http://http://198.18.133.198:8192/ova/
