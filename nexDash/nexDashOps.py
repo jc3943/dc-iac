@@ -26,8 +26,13 @@ def nexDashAddSite(specDict, cookie):
         csvDict = list(csvread)
 
     urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+    authString = "AuthCookie=" + cookie
 
     siteUrl = nexDashBaseUrl + "/nexus/api/sitemanagement/v4/sites"
-    sitePayload = {"spec":{"host":csvDict[0]['apicIp'],"latitude":"10","name":"dCloud","password":"C1sco12345","siteType":"ACI","userName":"admin"}}
+    siteHeader = {"Cookie":authString,"content-type": "application/json"}
+    sitePayload = {"spec":{"host":csvDict[0]['apicIp'],"latitude":"10","name":"dCloud","password":"QzFzY28xMjM0NQ==","siteType":"ACI","userName":"admin"}}
+    siteAddResponse = requests.post(siteUrl, headers=siteHeader, json=sitePayload, verify=False)
+    siteJson = siteAddResponse.json()
+    print(siteJson)
 
 

@@ -14,21 +14,19 @@
       data:
         tailf-ncs:devices:
           device:
-           - address: "{{ item.apicAddress }}"
+           - address: "{{ item.fmcAddress }}"
              description: CONFIGURED BY ANSIBLE!
-             name: "{{ item.apicName }}"
+             name: "{{ item.fmcName }}"
              authgroup: "dcloud-creds"
              local-user: admin
              device-type:
                generic:
-                 ned-id: "cisco-apicdc-gen-3.18"
+                 ned-id: "cisco-fmc-gen-1.6"
              ned-settings:
-               tailf-ned-cisco-apicdc-meta:cisco-apicdc:
-                 config-path: "/root/aci"
-                 local-host: False
-                 host: "198.18.134.150"
-                 user-name: "root"
-                 user-password: "C1sco12345"
+               tailf-ned-cisco-fmc-meta:cisco-fmc:
+                 cisco-fmc-connection:
+                   ssl:
+                     accept-any: true
              ssh:
                host-key-verification: "none"
              port: "443"
