@@ -5,6 +5,7 @@
   vars: 
     esxi_username: 'root'
     esxi_password: 'C1sco12345'
+    esxi_host: '198.18.134.201'
     vcenter_hostname: '198.18.133.30'
     vcenter_password: 'C1sco12345'
     vcsa_user: 'administrator@vsphere.local'
@@ -18,9 +19,9 @@
     datastore: 'hx-a-dc1'
     networks: 'VM Network'
     ubuntu_ova_name: jammy-server-cloudimg-amd64.ova
-    ubuntu_ova_url: http://http://198.18.133.198:8192/ova/
+    #ubuntu_ova_url: http://http://198.18.133.198:8192/ova/
     ubuntu_ova_file: '/tmp/{{ ubuntu_ova_name }}'
-    nfs_file_browser_url: "http://172.16.10.124:8005"
+    nfs_file_browser_url: "http://198.18.133.198:8192"
     nfs_file_browser_user: "admin"
     nfs_file_browser_password: "admin"
     nfs_file_url: '/api/raw/00-Software/utils/{{ vcsa_ova_name }}'
@@ -49,13 +50,12 @@
 
   - name: Download the file
     get_url:
-      url: '{{ nfs_file_browser_url }}/api/raw/00-Software/utils/{{ ubuntu_ova_name }}'
+      url: '{{ nfs_file_browser_url }}/ova/{{ ubuntu_ova_name }}'
       #dest: '/var/jenkins_home/{{ vcsa_ova_name }}'
       dest: '/tmp/{{ ubuntu_ova_name }}'
 
   - vmware_deploy_ovf:
-      #hostname: '{{ item.vcsaHost }}'
-      hostname: "172.16.115.12"
+      hostname: '{{ esxi_host }}'
       username: '{{ esxi_username }}'
       password: '{{ esxi_password }}'
       #name: '{{ vcenter_hostname }}'
@@ -69,10 +69,10 @@
       networks: "{u'Network 1':u'{{ networks }}'}"
     delegate_to: localhost
 
-  - read_csv:
-      path: ../$varPath/aci/tenant.csv
-    register: tenantlist
-    tags: canary
+#  - read_csv:
+#      path: ../$varPath/aci/tenant.csv
+#    register: tenantlist
+#    tags: canary
 
   - name: TASK - Clone Ubuntu Template
     community.vmware.vmware_guest:
@@ -83,40 +83,40 @@
       template: "tmpl_ubuntu"
       name: 'ubuntu-{{ vms.epg }}'
       folder: /
-      datacenter: "sandbox"
-      cluster: "sandbox"
+      datacenter: "dCloud-HX-DC-A"
+      cluster: "hx-cluster-a"
       networks:
-        - name: "{{ vms.tenant }}|{{ vms.appProfile }}|{{ vms.epg }}"
+        - name: "{u'Network 1':u'{{ networks }}'}"
           type: dhcp
           connected: yes
           start_connected: yes
       state: poweredon
-    loop: "{{ tenantlist.list }}"
-    loop_control:
-        loop_var: vms
-    when: (vms.domainType == "vmm" and vms.dhcpRelay != "NA")
-    delegate_to: localhost
+#    loop: "{{ tenantlist.list }}"
+#    loop_control:
+#        loop_var: vms
+#    when: (vms.domainType == "vmm" and vms.dhcpRelay != "NA")
+#    delegate_to: localhost
 
-  - name: TASK - Gather VM IP
-    vmware_guest_info:
-      hostname: '{{ vcenter_hostname }}'
-      username: '{{ vcsa_user }}'
-      password: '{{ vcsa_pw }}'
-      validate_certs: no
-      schema: vsphere
-      datacenter: "sandbox"
-      folder: /
-      name: 'ubuntu-{{ vms.epg }}'
-      properties:
-        - guest.ipAddress
-    retries: 60
-    delay: 10
-    until: gather_vm_info.instance.guest.ipAddress is not none
-    register: gather_vm_info
-    loop: "{{ tenantlist.list }}"
-    loop_control:
-        loop_var: vms
-    when: (vms.domainType == "vmm" and vms.dhcpRelay != "NA")
-    delegate_to: localhost
+ # - name: TASK - Gather VM IP
+ #   vmware_guest_info:
+ #     hostname: '{{ vcenter_hostname }}'
+ #     username: '{{ vcsa_user }}'
+ #     password: '{{ vcsa_pw }}'
+ #     validate_certs: no
+ #     schema: vsphere
+ #     datacenter: "sandbox"
+ #     folder: /
+ #     name: 'ubuntu-{{ vms.epg }}'
+ #     properties:
+ #       - guest.ipAddress
+ #   retries: 60
+ #   delay: 10
+ #   until: gather_vm_info.instance.guest.ipAddress is not none
+ #   register: gather_vm_info
+ #   loop: "{{ tenantlist.list }}"
+ #   loop_control:
+ #       loop_var: vms
+ #   when: (vms.domainType == "vmm" and vms.dhcpRelay != "NA")
+ #   delegate_to: localhost
 
-  - debug: var=gather_vm_info
+ # - debug: var=gather_vm_info
