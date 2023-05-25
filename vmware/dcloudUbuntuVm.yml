@@ -10,16 +10,11 @@
     vcenter_password: 'C1sco12345'
     vcsa_user: 'administrator@vsphere.local'
     vcsa_pw: 'C1sco12345'
-    net_prefix: '18'
-    net_gateway: '198.18.128.1'
-    dns_servers: '198.18.133.1'
-    ntp_servers: '198.18.133.1'
     domain: 'dcloud.cisco.com'
     searchpath: "dcloud.cisco.com"
     datastore: 'hx-a-ds1'
     networks: 'VM Network'
     ubuntu_ova_name: jammy-server-cloudimg-amd64.ova
-    #ubuntu_ova_url: http://http://198.18.133.198:8192/ova/
     ubuntu_ova_file: '/tmp/{{ ubuntu_ova_name }}'
     nfs_file_browser_url: "http://198.18.133.198:8192"
     nfs_file_browser_user: "admin"
@@ -27,38 +22,16 @@
     nfs_file_url: '/api/raw/00-Software/utils/{{ vcsa_ova_name }}'
 
   tasks:
-#  - name: Creating a Directory to mount the NFS Storage
-#    become: true
-#    file:
-#      path: /var/jenkins_home/iso
-#      state: directory
-#      mode: 0777
-
-#  - name: Authenticate to the nfs file browser
-#    uri:
-#      url: '{{ nfs_file_browser_url }}/api/login'
-#      method: POST
-#      body_format: json
-#      body: '{"username":"{{ nfs_file_browser_user }}","password":"{{ nfs_file_browser_password }}","recaptcha":""}'
-#      headers:
-#        Content-Type: "application/json"
-#        Accept: "application/json"
-#      return_content: yes
-#      validate_certs: no
-#      status_code: 200, -1
-#    register: auth_res
 
   - name: Download the file
     get_url:
       url: '{{ nfs_file_browser_url }}/ova/{{ ubuntu_ova_name }}'
-      #dest: '/var/jenkins_home/{{ vcsa_ova_name }}'
       dest: '/tmp/{{ ubuntu_ova_name }}'
 
   - vmware_deploy_ovf:
       hostname: '{{ esxi_host }}'
       username: '{{ esxi_username }}'
       password: '{{ esxi_password }}'
-      #name: '{{ vcenter_hostname }}'
       name: "tmpl_ubuntu" 
       ovf: '{{ ubuntu_ova_file }}' 
       wait_for_ip_address: false
@@ -69,11 +42,6 @@
       networks: "{u'Network 1':u'{{ networks }}'}"
     delegate_to: localhost
 
-#  - read_csv:
-#      path: ../$varPath/aci/tenant.csv
-#    register: tenantlist
-#    tags: canary
-
   - name: TASK - Clone Ubuntu Template
     community.vmware.vmware_guest:
       hostname: '{{ vcenter_hostname }}'
@@ -81,7 +49,7 @@
       password: '{{ vcsa_pw }}'
       validate_certs: no
       template: "tmpl_ubuntu"
-      name: 'ubuntu-{{ vms.epg }}'
+      name: 'tmpl_ubuntu-dcloud'
       folder: /
       datacenter: "dCloud-HX-DC-A"
       cluster: "hx-cluster-a"
@@ -90,12 +58,8 @@
           type: dhcp
           connected: yes
           start_connected: yes
-      state: poweredon
-#    loop: "{{ tenantlist.list }}"
-#    loop_control:
-#        loop_var: vms
-#    when: (vms.domainType == "vmm" and vms.dhcpRelay != "NA")
-#    delegate_to: localhost
+      #state: poweredon
+      state: present
 
  # - name: TASK - Gather VM IP
  #   vmware_guest_info:
