@@ -26,15 +26,15 @@
 
   - name: Download the file
     get_url:
-      url: '{{ nfs_file_browser_url }}/ova/{{ ubuntu_ova_name }}'
-      dest: '/tmp/{{ ubuntu_ova_name }}'
+      url: '{{ nfs_file_browser_url }}/ova/{{ ova_name }}'
+      dest: '/tmp/{{ ova_name }}'
 
   - vmware_deploy_ovf:
       hostname: '{{ esxi_host }}'
       username: '{{ esxi_username }}'
       password: '{{ esxi_password }}'
       name: "ubuntu_dcloud-1" 
-      ovf: '{{ ubuntu_ova_file }}' 
+      ovf: '{{ ova_name }}' 
       wait_for_ip_address: false
       #power_on: yes
       validate_certs: no
