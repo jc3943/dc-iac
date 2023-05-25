@@ -11,6 +11,7 @@
     vcsa_user: 'administrator@vsphere.local'
     vcsa_pw: 'C1sco12345'
     domain: 'dcloud.cisco.com'
+    pubkey: 'ecdsa-sha2-nistp521 AAAAE2VjZHNhLXNoYTItbmlzdHA1MjEAAAAIbmlzdHA1MjEAAACFBACmlZI97WQ8CGCKP6dypiTcCudqSN1QWEUTPZkKl37AvAwLS1cvlVBSMixyrPrPB4/zQlw9RKiW5ihtckik2jG2/AE6dX7J+fHzHh2QL08D45T3qFm82XSevKXn+ntWsHttpCcg/KVOftsLj52/2H5Xs084H9hPjd86mJIvIr+p3YxSog== dcloud@dcloud'
     searchpath: "dcloud.cisco.com"
     datastore: 'hx-a-ds1'
     networks: 'VM Network'
@@ -40,6 +41,13 @@
       inject_ovf_env: false
       datastore: '{{ datastore }}'
       networks: "{u'Network 1':u'{{ networks }}'}"
+      properties:
+        instance-id: "ubuntu_dcloud-1"
+        hostname: "ubuntu_dcloud-1"
+        public-keys: '{{ pubkey}}'
+        password: '{{ esxi_password }}'
+        DeploymentOption.value: '{{ vcsa_size }}'
+        guestinfo.cis.appliance.net.addr.family: 'ipv4'
     delegate_to: localhost
 
   - name: TASK - Clone Ubuntu Template
