@@ -16,7 +16,7 @@
     datastore: 'hx-a-ds1'
     networks: 'VM Network'
     ubuntu_ova_name: jammy-server-cloudimg-amd64.ova
-    ubuntu_ova_file: '/tmp/{{ ubuntu_ova_name }}'
+    ubuntu_ova_file: '/tmp/{{ ova_name }}'
     nfs_file_browser_url: "http://198.18.133.198:8192"
     nfs_file_browser_user: "admin"
     nfs_file_browser_password: "admin"
@@ -34,7 +34,7 @@
       username: '{{ esxi_username }}'
       password: '{{ esxi_password }}'
       name: "ubuntu_dcloud-1" 
-      ovf: '{{ ova_name }}' 
+      ovf: '{{ ubuntu_ova_file }}' 
       wait_for_ip_address: false
       #power_on: yes
       validate_certs: no
