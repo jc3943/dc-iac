@@ -46,8 +46,6 @@
         hostname: "ubuntu_dcloud-1"
         public-keys: '{{ pubkey}}'
         password: '{{ esxi_password }}'
-        DeploymentOption.value: '{{ vcsa_size }}'
-        guestinfo.cis.appliance.net.addr.family: 'ipv4'
     delegate_to: localhost
 
   - name: TASK - Clone Ubuntu Template
