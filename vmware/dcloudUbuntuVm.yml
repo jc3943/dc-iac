@@ -36,9 +36,9 @@
       name: "ubuntu_dcloud-1" 
       ovf: '{{ ubuntu_ova_file }}' 
       wait_for_ip_address: false
-      power_on: no
+      #power_on: yes
       validate_certs: no
-      inject_ovf_env: false
+      inject_ovf_env: true
       datastore: '{{ datastore }}'
       networks: "{u'Network 1':u'{{ networks }}'}"
       properties:
