@@ -53,11 +53,11 @@
       folder: /
       datacenter: "dCloud-HX-DC-A"
       cluster: "hx-cluster-a"
-      networks:
-        - name: "{u'Network 1':u'{{ networks }}'}"
-          type: dhcp
-          connected: yes
-          start_connected: yes
+        #      networks:
+        #- name: "{u'Network 1':u'{{ networks }}'}"
+        #  type: dhcp
+        #  connected: yes
+        #  start_connected: yes
       state: poweredon  
 
  # - name: TASK - Gather VM IP
