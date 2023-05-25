@@ -49,7 +49,7 @@
       password: '{{ vcsa_pw }}'
       validate_certs: no
       template: "tmpl_ubuntu"
-      name: 'tmpl_ubuntu-dcloud'
+      name: "tmpl_ubuntu-dcloud"
       folder: /
       datacenter: "dCloud-HX-DC-A"
       cluster: "hx-cluster-a"
@@ -58,7 +58,7 @@
           type: dhcp
           connected: yes
           start_connected: yes
-      #state: poweredon
+#      state: poweredon
       state: present
 
  # - name: TASK - Gather VM IP
