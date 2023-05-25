@@ -32,7 +32,7 @@
       hostname: '{{ esxi_host }}'
       username: '{{ esxi_username }}'
       password: '{{ esxi_password }}'
-      name: "tmpl_ubuntu" 
+      name: "ubuntu_dcloud" 
       ovf: '{{ ubuntu_ova_file }}' 
       wait_for_ip_address: false
       power_on: no
