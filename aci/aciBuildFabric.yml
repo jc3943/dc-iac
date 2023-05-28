@@ -9,7 +9,7 @@
   connection: local
   gather_facts: False
   vars_files:
-    - vars/ltrato-2002/aci/switch-inventory.yml
+    - /data/vars/ltrato-2002/aci/switch-inventory.yml
 
   tasks:
     - name: TASK 00a - Register Leaf Switches
