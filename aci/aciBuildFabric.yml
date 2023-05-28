@@ -8,7 +8,7 @@
   hosts: apic
   connection: local
   gather_facts: False
-  var_files:
+  vars_files:
     - vars/ltrato-2002/aci/switch-inventory.yml
 
   tasks:
