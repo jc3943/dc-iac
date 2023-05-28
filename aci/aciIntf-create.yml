@@ -7,6 +7,8 @@
   hosts: apic
   connection: local
   gather_facts: False
+  vars_files:
+    - /data/vars/ltrato-2002/aci/aci-ports.yaml
 
   tasks:
 
