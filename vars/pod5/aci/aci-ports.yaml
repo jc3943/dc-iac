@@ -2,7 +2,7 @@ interfaceProfiles:
 - blkNum: block2
   description: HX-04-1_mLOM-01
   fromPort: 5
-  interfaceProfile: Leaf-201_intProf
+  interfaceProfile: Leaf-101_intProf
   intfType: switch_port
   name: HX_vSwitch
   policyGrp: HX_vSwitch
@@ -10,7 +10,7 @@ interfaceProfiles:
 - blkNum: block3
   description: HX-04-2_mLOM-01
   fromPort: 6
-  interfaceProfile: Leaf-201_intProf
+  interfaceProfile: Leaf-101_intProf
   intfType: switch_port
   name: HX_vSwitch
   policyGrp: HX_vSwitch
@@ -18,7 +18,7 @@ interfaceProfiles:
 - blkNum: block4
   description: HX-04-3_mLOM-01
   fromPort: 7
-  interfaceProfile: Leaf-201_intProf
+  interfaceProfile: Leaf-101_intProf
   intfType: switch_port
   name: HX_vSwitch
   policyGrp: HX_vSwitch
@@ -26,7 +26,7 @@ interfaceProfiles:
 - blkNum: block2
   description: HX-04-1_mLOM-02
   fromPort: 5
-  interfaceProfile: Leaf-202_intProf
+  interfaceProfile: Leaf-102_intProf
   intfType: switch_port
   name: HX_vSwitch
   policyGrp: HX_vSwitch
@@ -34,7 +34,7 @@ interfaceProfiles:
 - blkNum: block3
   description: HX-04-2_mLOM-02
   fromPort: 6
-  interfaceProfile: Leaf-202_intProf
+  interfaceProfile: Leaf-102_intProf
   intfType: switch_port
   name: HX_vSwitch
   policyGrp: HX_vSwitch
@@ -42,7 +42,7 @@ interfaceProfiles:
 - blkNum: block4
   description: HX-04-3_mLOM-02
   fromPort: 7
-  interfaceProfile: Leaf-202_intProf
+  interfaceProfile: Leaf-102_intProf
   intfType: switch_port
   name: HX_vSwitch
   policyGrp: HX_vSwitch
@@ -50,7 +50,7 @@ interfaceProfiles:
 - blkNum: block2
   description: ESXi-04-1_mLOM-01
   fromPort: 11
-  interfaceProfile: Leaf-201_intProf
+  interfaceProfile: Leaf-101_intProf
   intfType: switch_port
   name: ESXi_vSwitch
   policyGrp: ESXi_vSwitch
@@ -58,7 +58,7 @@ interfaceProfiles:
 - blkNum: block2
   description: ESXi-04-1_mLOM-02
   fromPort: 11
-  interfaceProfile: Leaf-202_intProf
+  interfaceProfile: Leaf-102_intProf
   intfType: switch_port
   name: ESXi_vSwitch
   policyGrp: ESXi_vSwitch
