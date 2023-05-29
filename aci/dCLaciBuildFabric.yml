@@ -8,6 +8,8 @@
   hosts: apic
   connection: local
   gather_facts: False
+  vars_files:
+    - /data/vars/ltrato-2002/aci/switch-inventory.yaml
 
   tasks:
     - name: TASK 00a - Register Leaf Switches
