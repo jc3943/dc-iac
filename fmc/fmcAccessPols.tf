@@ -47,8 +47,8 @@ resource "fmc_devices" "dcloud_ftd" {
     }
 }
 
-resource "fmc_ftd_deploy" "ftd" {
-    device = fmc_devices.dcloud_ftd.id
-    ignore_warning = true
-    force_deploy = true
-}
+#resource "fmc_ftd_deploy" "ftd" {
+#    device = fmc_devices.dcloud_ftd.id
+#    ignore_warning = true
+#    force_deploy = true
+#}
