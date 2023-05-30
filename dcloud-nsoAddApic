@@ -15,7 +15,7 @@ pipeline {
   
   stages{
 
-    stage('Add credentials to APIC') {
+    stage('Add APIC to NSO') {
       steps {
           //create user for signature-based auth for all other aci playbooks
           ansiblePlaybook(
