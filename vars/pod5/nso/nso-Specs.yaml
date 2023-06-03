@@ -3,6 +3,6 @@ nsospecs:
   c8000vAddress: 172.0.1.11
   c8000vName: pod1-8000v
   apicAddress: 198.18.133.200
-  apicName: dcloud-test
+  apicName: dcloud-apic
   fmcAddress: 198.18.133.10
   fmcName: dcloud-fmc
