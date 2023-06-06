@@ -40,9 +40,9 @@
       with_items: "{{ spines }}"
       tags: register 
 
-    - name: Pause for apic sync
-      ansible.builtin.pause:
-        minutes: 5     
+#    - name: Pause for apic sync
+#      ansible.builtin.pause:
+#        minutes: 5     
 
     - name: TASK 01 - Create CDP ON Policy
       aci_interface_policy_cdp:

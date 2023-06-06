@@ -1,0 +1,45 @@
+---
+# Jeff Comer
+# Ansible Playbook to build base configuration of ACI fabric
+# uses vars/<branch>/switch-inventory.yaml for variables
+# modify vars/<branch>/switch-inventory.csv and run build-inventory.py to creaste vars/<branch>/switch-inventory.yaml
+
+- name: Build Fabric
+  hosts: apic
+  connection: local
+  gather_facts: False
+
+  tasks:
+    - name: TASK 00a - Register Leaf Switches
+      aci_fabric_node:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        private_key: ../creds/ansible.key
+        state: "present"
+        validate_certs: False
+        node_id: "{{ item.nodeid }}"
+        switch: "{{ item.lname }}"
+        serial: "{{ item.lserial }}"
+        descr: "Policy Created Using Ansible"
+        #role: leaf
+      with_items: "{{ leaves }}"
+      tags: register
+
+    - name: TASK 00b - Register Spine Switches
+      aci_fabric_node:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        private_key: ../creds/ansible.key
+        state: "present"
+        validate_certs: False
+        node_id: "{{ item.nodeid }}"
+        switch: "{{ item.sname }}"
+        serial: "{{ item.sserial }}"
+        descr: "Policy Created Using Ansible"
+        #role: spine
+      with_items: "{{ spines }}"
+      tags: register 
+
+    - name: Pause for apic sync
+      ansible.builtin.pause:
+        minutes: 5
