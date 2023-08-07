@@ -24,7 +24,7 @@
              local-user: admin
              device-type:
                generic:
-                 ned-id: "cisco-apicdc-gen-3.18"
+                 ned-id: "cisco-apicdc-gen-3.19"
              ned-settings:
                tailf-ned-cisco-apicdc-meta:cisco-apicdc:
                  config-path: "/root/aci"
