@@ -4,9 +4,8 @@
 
 - hosts: localhost
   gather_facts: no
-
-vars_files:
-  - /data/vars/ltrato-2002/nso/nso-Specs.yaml
+  vars_files:
+    - /data/vars/ltrato-2002/nso/nso-Specs.yaml
 
   tasks:
   - name: CREATE DEVICE IN NSO
