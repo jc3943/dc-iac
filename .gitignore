@@ -4,6 +4,7 @@
 # .tfstate files
 *.tfstate
 *.tfstate.*
+id_ecdsa*
 
 # Crash log files
 crash.log
