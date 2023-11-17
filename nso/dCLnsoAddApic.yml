@@ -27,10 +27,10 @@
                  ned-id: "cisco-apicdc-gen-3.19"
              ned-settings:
                tailf-ned-cisco-apicdc-meta:cisco-apicdc:
-                 config-path: "/root/aci"
+                 config-path: "/home/dcloud/aci"
                  local-host: False
-                 host: "198.18.134.150"
-                 user-name: "root"
+                 host: "198.18.134.101"
+                 user-name: "dcloud"
                  user-password: "C1sco12345"
              ssh:
                host-key-verification: "none"
