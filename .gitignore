@@ -8,6 +8,7 @@ id_ecdsa*
 
 # Crash log files
 crash.log
+*.log
 
 # keys
 id_ecdsa*

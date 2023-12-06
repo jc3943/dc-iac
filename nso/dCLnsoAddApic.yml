@@ -29,7 +29,11 @@
                tailf-ned-cisco-apicdc-meta:cisco-apicdc:
                  config-path: "/home/dcloud/aci"
                  local-host: False
+<<<<<<< HEAD
                  host: "198.18.133.101"
+=======
+                 host: "198.18.134.101"
+>>>>>>> dj-ico-aci
                  user-name: "dcloud"
                  user-password: "C1sco12345"
              ssh:
